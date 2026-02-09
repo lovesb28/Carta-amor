@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Para Mi Amor</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
@@ -10,16 +10,23 @@
 <body>
 
     <div id="file-screen" class="active">
-        <div class="file-container">
-            <div class="file-icon">
+        <div class="floating-decorations">
+            <span class="decor d1">💌</span> <span class="decor d2">❤️</span>
+            <span class="decor d3">🌹</span> <span class="decor d4">🌸</span>
+            <span class="decor d5">💐</span> <span class="decor d6">💖</span>
+            <span class="decor d7">📜</span> <span class="decor d8">💘</span>
+             <span class="decor d9">💌</span> <span class="decor d10">❤️</span>
+        </div>
+
+        <div class="file-container-box">
+            <div class="file-icon-badge">
                 <img src="https://cdn-icons-png.flaticon.com/512/2991/2991108.png" alt="HTML Icon">
-                <div class="file-info">
-                    <span class="file-name">Para Ti ❤️.html</span>
-                    <span class="file-size">HTML • 217 B</span>
-                </div>
-                <div class="download-arrow"></div>
             </div>
-            <p class="tap-instruction">Toca el archivo para abrirlo</p>
+            <div class="file-details">
+                <span class="file-title">Para Ti, mi vida ❤️.html</span>
+                <span class="file-meta">Documento de Amor • 14 Junio 2025</span>
+            </div>
+            <p class="tap-instruction">Toca la pantalla para abrir el regalo...</p>
         </div>
     </div>
 
@@ -36,8 +43,8 @@
                 <canvas id="tree"></canvas>
             </div>
 
-            <div id="counter" class="fade-in">
-                <p class="counter-label">Mi amor por ti comenzó hace...</p>
+            <div id="counter">
+                <p class="counter-label">Nuestro amor comenzó hace...</p>
                 <div id="timer">
                     <span id="days">0</span>d <span id="hours">00</span>h <span id="minutes">00</span>m <span id="seconds">00</span>s
                 </div>
@@ -45,7 +52,7 @@
         </div>
     </div>
 
-    <audio id="bg-music" loop>
+    <audio id="bg-music" loop preload="auto">
         <source src="tu_cancion.mp3" type="audio/mpeg">
     </audio>
 
