@@ -3,56 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Para Mi Amor</title>
+    <title>Para mi amor</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <div id="file-screen" class="active">
-        <div class="floating-decorations">
-            <span class="decor d1">💌</span> <span class="decor d2">❤️</span>
-            <span class="decor d3">🌹</span> <span class="decor d4">🌸</span>
-            <span class="decor d5">💐</span> <span class="decor d6">💖</span>
-            <span class="decor d7">📜</span> <span class="decor d8">💘</span>
-             <span class="decor d9">💌</span> <span class="decor d10">❤️</span>
-        </div>
-
-        <div class="file-container-box">
-            <div class="file-icon-badge">
-                <img src="https://cdn-icons-png.flaticon.com/512/2991/2991108.png" alt="HTML Icon">
-            </div>
-            <div class="file-details">
-                <span class="file-title">Para Ti, mi vida ❤️.html</span>
-                <span class="file-meta">Documento de Amor • 14 Junio 2025</span>
-            </div>
-            <p class="tap-instruction">Toca la pantalla para abrir el regalo...</p>
-        </div>
+    <div id="pantalla-inicio" onclick="comenzar()">
+        <h1 class="titulo-inicio">Te entrego mi corazón</h1>
+        <div class="boton-corazon-inicio">❤️</div>
+        <p class="instruccion">(Toca la pantalla para abrir)</p>
     </div>
 
-    <div id="main-content" class="hidden">
-        <div class="card">
-            <div id="text-wrapper">
-                <p id="line1" class="typing-text"></p>
-                <p id="line2" class="typing-text"></p>
-                <p id="line3" class="typing-text"></p>
-                <p id="final-line" class="typing-text"></p>
-            </div>
+    <div id="contenido-regalo">
+        <div id="area-texto">
+            <p id="L1" class="texto-amor"></p>
+            <p id="L2" class="texto-amor"></p>
+            <p id="L3" class="texto-amor"></p>
+            <p id="L4" class="texto-amor-final"></p>
+        </div>
 
-            <div class="tree-canvas-container">
-                <canvas id="tree"></canvas>
-            </div>
+        <div class="canvas-container">
+            <canvas id="corazonCanvas"></canvas>
+        </div>
 
-            <div id="counter">
-                <p class="counter-label">Nuestro amor comenzó hace...</p>
-                <div id="timer">
-                    <span id="days">0</span>d <span id="hours">00</span>h <span id="minutes">00</span>m <span id="seconds">00</span>s
-                </div>
+        <div id="contador">
+            <p class="label-contador">Nuestro amor comenzó hace...</p>
+            <div id="tiempo">
+                <span id="d">0</span>d <span id="h">00</span>h <span id="m">00</span>m <span id="s">00</span>s
             </div>
         </div>
     </div>
 
-    <audio id="bg-music" loop preload="auto">
+    <audio id="musica" loop preload="auto">
         <source src="tu_cancion.mp3" type="audio/mpeg">
     </audio>
 
