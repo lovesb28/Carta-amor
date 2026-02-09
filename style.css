@@ -1,75 +1,113 @@
+/* Estilos Generales */
 * {
-margin: 0;
-padding: 0;
-box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-background: radial-gradient(circle, #ff9a9e 0%, #fad0c4 99%);
-height: 100vh;
-display: flex;
-justify-content: center;
-align-items: center;
-font-family: 'Nunito', sans-serif;
-overflow: hidden;
+    /* Fondo Bokeh rosado similar al video */
+    background: url('https://i.pinimg.com/564x/3a/39/0f/3a390f40ae6fb20c97be91961fc1c038.jpg') no-repeat center center fixed;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Nunito', sans-serif;
+    overflow: hidden;
 }
 
+/* La tarjeta principal */
 .main-card {
-background-color: #fdf6e3;
-width: 90%;
-max-width: 400px;
-height: 600px;
-border-radius: 20px;
-box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-position: relative;
-overflow: hidden;
-padding: 20px;
-display: flex;
-flex-direction: column;
+    background-color: #FFF8E7; /* Color crema/beige claro */
+    width: 95%;
+    max-width: 420px; /* Un poco más ancha */
+    height: 650px; /* Un poco más alta */
+    border-radius: 30px; /* Bordes más redondeados */
+    box-shadow: 0 15px 35px rgba(163, 42, 42, 0.3); /* Sombra rojiza suave */
+    position: relative;
+    overflow: hidden;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
 }
 
+/* Contenedor de textos */
 .text-container {
-position: relative;
-z-index: 10;
-height: 150px;
+    position: relative;
+    z-index: 20;
+    height: 160px;
 }
 
 .line {
-font-family: 'Dancing Script', cursive;
-font-size: 1.5rem;
-color: #d32f2f;
-margin-bottom: 15px;
-transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #B71C1C; /* Rojo intenso */
+    margin-bottom: 15px;
+    transition: all 1.2s ease-out;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
 }
 
-.hidden { opacity: 0; transform: translateY(20px); }
-.visible { opacity: 1; transform: translateY(0); }
+/* Estados de visibilidad */
+.hidden { opacity: 0; transform: translateY(30px) scale(0.95); }
+.visible { opacity: 1; transform: translateY(0) scale(1); }
 
-.canvas-container { flex-grow: 1; position: relative; width: 100%; }
-canvas { position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); }
+/* Área del Árbol */
+.tree-container {
+    flex-grow: 1;
+    position: relative;
+    width: 100%;
+    /* Línea del suelo */
+    border-bottom: 3px solid #8D6E63; 
+    margin-bottom: 10px;
+}
 
-.counter-container { text-align: center; margin-bottom: 20px; transition: opacity 1s; }
-.counter-title { font-size: 1rem; color: #555; margin-bottom: 10px; }
-#timer { display: flex; justify-content: center; gap: 10px; }
+canvas {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Contador */
+.counter-container {
+    text-align: center;
+    margin-top: auto;
+    transition: opacity 1.5s ease-in-out;
+    z-index: 20;
+    background: rgba(255, 248, 231, 0.8); /* Fondo semi-transparente para que se lea bien */
+    padding: 10px;
+    border-radius: 15px;
+}
+
+.counter-title { font-size: 1rem; color: #795548; margin-bottom: 8px; font-weight: 700; }
+#timer { display: flex; justify-content: center; gap: 15px; }
 .time-box { display: flex; flex-direction: column; align-items: center; }
-#timer span { font-weight: bold; font-size: 1.2rem; color: #d32f2f; }
-.label { font-size: 0.7rem; color: #777; }
+#timer span { font-family: 'Dancing Script', cursive; font-weight: 700; font-size: 1.5rem; color: #D32F2F; }
+.label { font-family: 'Nunito', sans-serif; font-size: 0.75rem; color: #8D6E63; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;}
 
+/* Botón de inicio */
 .click-hint {
-position: absolute;
-top: 50%;
-left: 50%;
-transform: translate(-50%, -50%);
-color: #d32f2f;
-background: rgba(255,255,255,0.9);
-padding: 10px 20px;
-border-radius: 20px;
-cursor: pointer;
-animation: pulse 1.5s infinite;
-z-index: 100;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    background: linear-gradient(45deg, #D32F2F, #FF5252);
+    padding: 15px 30px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 0 5px 15px rgba(211, 47, 47, 0.4);
+    animation: pulseBtn 2s infinite;
+    z-index: 100;
+    white-space: nowrap;
 }
 
-@keyframes pulse {
-0%, 100% { transform: translate(-50%, -50%) scale(1); }
-50% { transform: translate(-50%, -50%) scale(1.1); }
+@keyframes pulseBtn {
+    0% { box-shadow: 0 0 0 0 rgba(255, 82, 82, 0.7); }
+    70% { box-shadow: 0 0 0 20px rgba(255, 82, 82, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(255, 82, 82, 0); }
 }
