@@ -5,40 +5,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Para Mi Amor</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Montserrat:wght@300;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
+
+    <div id="file-screen" class="active">
+        <div class="file-container">
+            <div class="file-icon">
+                <img src="https://cdn-icons-png.flaticon.com/512/2991/2991108.png" alt="HTML Icon">
+                <div class="file-info">
+                    <span class="file-name">Para Ti ❤️.html</span>
+                    <span class="file-size">HTML • 217 B</span>
+                </div>
+                <div class="download-arrow"></div>
+            </div>
+            <p class="tap-instruction">Toca el archivo para abrirlo</p>
+        </div>
+    </div>
+
+    <div id="main-content" class="hidden">
+        <div class="card">
+            <div id="text-wrapper">
+                <p id="line1" class="typing-text"></p>
+                <p id="line2" class="typing-text"></p>
+                <p id="line3" class="typing-text"></p>
+                <p id="final-line" class="typing-text"></p>
+            </div>
+
+            <div class="tree-canvas-container">
+                <canvas id="tree"></canvas>
+            </div>
+
+            <div id="counter" class="fade-in">
+                <p class="counter-label">Mi amor por ti comenzó hace...</p>
+                <div id="timer">
+                    <span id="days">0</span>d <span id="hours">00</span>h <span id="minutes">00</span>m <span id="seconds">00</span>s
+                </div>
+            </div>
+        </div>
+    </div>
 
     <audio id="bg-music" loop>
         <source src="tu_cancion.mp3" type="audio/mpeg">
     </audio>
-
-    <div class="container">
-        <div class="glass-card">
-            <div class="content">
-                <div class="text-sequence">
-                    <h1 id="text1" class="hidden">Para el hombre que se robó mi corazón:</h1>
-                    <p id="text2" class="hidden">Cada segundo a tu lado es un regalo...</p>
-                    <h2 id="text3" class="hidden">Cuanto más tiempo estoy contigo, más te quiero.</h2>
-                </div>
-
-                <div class="canvas-wrapper">
-                    <canvas id="treeCanvas"></canvas>
-                </div>
-
-                <div id="counter" class="hidden">
-                    <p class="counter-label">Llevamos juntos:</p>
-                    <div class="timer-grid">
-                        <div class="t-item"><span id="days">0</span><label>Días</label></div>
-                        <div class="t-item"><span id="hours">00</span><label>Horas</label></div>
-                        <div class="t-item"><span id="mins">00</span><label>Min</label></div>
-                        <div class="t-item"><span id="secs">00</span><label>Seg</label></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div id="start-btn">Toca para abrir mi corazón ❤️</div>
-    </div>
 
     <script src="script.js"></script>
 </body>
