@@ -11,23 +11,23 @@
 <body>
 
   <!-- Pantalla inicial -->
-  <div id="pantalla-inicio" onclick="comenzar()">
-    <h1 class="titulo-inicio">Toca para abrir mi corazón ❤️</h1>
+  <div id="inicio" onclick="abrir()">
+    <h1>Toca para abrir mi corazón ❤️</h1>
   </div>
 
   <!-- Contenido -->
-  <div id="contenido-regalo">
-    <div id="area-texto">
-      <p id="L1" class="texto-amor"></p>
-      <p id="L2" class="texto-amor"></p>
-      <p id="L3" class="texto-amor-final"></p>
+  <div id="contenido">
+    <div class="texto">
+      <p id="t1"></p>
+      <p id="t2"></p>
+      <p id="t3" class="final"></p>
     </div>
 
-    <canvas id="corazonCanvas"></canvas>
+    <canvas id="corazon"></canvas>
 
     <div id="contador">
-      <p class="label-contador">Nuestro amor comenzó hace…</p>
-      <div id="tiempo">
+      <p>Nuestro amor comenzó hace…</p>
+      <div>
         <span id="d">0</span>d
         <span id="h">00</span>h
         <span id="m">00</span>m
