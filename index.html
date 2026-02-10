@@ -82,11 +82,11 @@ body{
   font-weight:bold;
 }
 
-/* canvas RESPONSIVE */
+/* canvas */
 .canvas-wrap{
   width:100%;
-  max-width:380px;
-  margin:20px auto;
+  max-width:360px;
+  margin:18px auto;
 }
 
 canvas{
@@ -164,18 +164,18 @@ function contar(){
   `${dias} días ${h}h ${m}m ${s}s`;
 }
 
-/* CORAZÓN AJUSTADO A CELULAR */
+/* CORAZÓN UN POCO MÁS PEQUEÑO */
 function dibujarCorazon(){
   const c=document.getElementById('corazon');
   const ctx=c.getContext('2d');
 
   c.width=c.offsetWidth;
-  c.height=c.offsetWidth; // cuadrado perfecto
+  c.height=c.offsetWidth;
 
   const colores=['#FFD700','#FF69B4','#1e3a8a'];
-  const escala=c.width/32;
+  const escala=c.width/36; // 🔹 antes 32 → ahora más pequeño
 
-  for(let i=0;i<4000;i++){
+  for(let i=0;i<3800;i++){
     const t=Math.random()*Math.PI*2;
     const r=Math.random();
     const x=16*Math.pow(Math.sin(t),3);
@@ -184,7 +184,7 @@ function dibujarCorazon(){
     const py=c.height/2+y*escala*r;
 
     ctx.fillStyle=colores[Math.floor(Math.random()*colores.length)];
-    ctx.font=(escala*1.4)+'px serif';
+    ctx.font=(escala*1.35)+'px serif';
     ctx.fillText('❤',px,py);
   }
 }
