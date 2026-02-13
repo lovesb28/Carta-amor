@@ -3,110 +3,147 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mi Corazón</title>
+<title>Para Ti 💌</title>
 
 <style>
 body{
-  margin:0;
-  font-family:'Courier New', cursive;
-  background:linear-gradient(135deg,#1a0b14,#ff4f9a);
-  overflow:hidden;
-  color:white;
-  text-align:center;
+    margin:0;
+    font-family:'Courier New', cursive;
+    background:linear-gradient(135deg,#ff9a9e,#fad0c4);
+    overflow:hidden;
+    text-align:center;
+    color:white;
 }
 
-/* pantalla inicio */
-#inicio{
-  position:fixed;
-  inset:0;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
-  cursor:pointer;
-  z-index:10;
+/* VIDEO */
+#videoContainer{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:black;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:10;
 }
 
-#inicio h1{
-  font-size:2.5rem;
-  animation:latido 1.4s infinite;
+video{
+    width:100%;
+    height:100%;
+    object-fit:cover;
 }
 
-@keyframes latido{
-  50%{transform:scale(1.1)}
-}
-
-/* pantalla video */
-#pantallaVideo{
-  position:fixed;
-  inset:0;
-  display:none;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  background:black;
-  z-index:11;
-}
-
-iframe{
-  width:90%;
-  max-width:420px;
-  height:70vh;
-  border:none;
-  border-radius:20px;
-}
-
-#continuar{
-  margin-top:20px;
-  padding:12px 22px;
-  border:none;
-  border-radius:30px;
-  background:white;
-  color:#ff4f9a;
-  font-weight:bold;
-  cursor:pointer;
-}
-
-/* contenido final */
+/* CONTENIDO PRINCIPAL */
 #contenido{
-  display:none;
-  padding:20px;
+    display:none;
+    padding:40px;
+    position:relative;
+    z-index:2;
+}
+
+h1{
+    font-size:2.5em;
+}
+
+button{
+    padding:12px 25px;
+    font-size:18px;
+    border:none;
+    border-radius:25px;
+    cursor:pointer;
+    margin:10px;
+    transition:0.3s;
+}
+
+#si{
+    background:#ff4b5c;
+    color:white;
+}
+
+#no{
+    background:white;
+    color:#ff4b5c;
+}
+
+/* CORAZONES */
+.corazon{
+    position:absolute;
+    color:rgba(255,255,255,0.6);
+    font-size:20px;
+    animation:flotar 8s linear infinite;
+}
+
+@keyframes flotar{
+    0%{transform:translateY(100vh) scale(0);}
+    100%{transform:translateY(-10vh) scale(1);}
 }
 </style>
 </head>
 
 <body>
 
-<div id="inicio" onclick="abrir()">
-  <h1>Pincha aquí para abrir mi corazón 💖✨</h1>
+<!-- VIDEO -->
+<div id="videoContainer">
+    <video autoplay muted playsinline id="video">
+        <source src="https://drive.google.com/uc?export=download&id=19WB5fkImc0CJ9GuGHwCHuJMLDe11AyID" type="video/mp4">
+    </video>
 </div>
 
-<div id="pantallaVideo">
-  <iframe 
-    src="https://drive.google.com/file/d/19WB5fkImc0CJ9GuGHwCHuJMLDe11AyID/preview"
-    allow="autoplay">
-  </iframe>
-  <button id="continuar" onclick="mostrarContenido()">Continuar 💌</button>
-</div>
-
+<!-- CONTENIDO -->
 <div id="contenido">
-  <h2>Para Ricardo quien se robó mi corazón un día 14</h2>
-  <p>
-    Feliz San Valentín a mi hombrecito, el primero de muchos juntos,
-    que aunque no estemos juntos hoy, siempre nos llevamos en el corazón.
-  </p>
-  <p><strong>💕 Te quiero muchísimo y te adoro demasiado 💕</strong></p>
+    <h1>💌 Sabía que dirías que sí 💘</h1>
+    <p>¿Quieres ser mi Valentín? 💞</p>
+    <button id="si">Sí 💖</button>
+    <button id="no">No 😅</button>
 </div>
 
 <script>
-function abrir(){
-  document.getElementById('inicio').style.display='none';
-  document.getElementById('pantallaVideo').style.display='flex';
-}
+let video = document.getElementById("video");
+let contenido = document.getElementById("contenido");
+let videoContainer = document.getElementById("videoContainer");
+let botonNo = document.getElementById("no");
+let intentos = 0;
 
-function mostrarContenido(){
-  document.getElementById('pantallaVideo').style.display='none';
-  document.getElementById('contenido').style.display='block';
+/* Cuando termine el video */
+video.onended = function(){
+    videoContainer.style.display="none";
+    contenido.style.display="block";
+    crearCorazones();
+};
+
+/* BOTÓN NO */
+botonNo.addEventListener("click", function(){
+    intentos++;
+    if(intentos==1){
+        botonNo.innerText="Ups inténtalo de nuevo 😅";
+    }else if(intentos==2){
+        botonNo.innerText="Esa no es la respuesta correcta 😳 intenta con el sí";
+    }else{
+        botonNo.style.position="absolute";
+        botonNo.style.top=Math.random()*80+"%";
+        botonNo.style.left=Math.random()*80+"%";
+    }
+});
+
+/* BOTÓN SI */
+document.getElementById("si").addEventListener("click", function(){
+    document.querySelector("h1").innerHTML="💖 ¡Me haces la persona más feliz! 💖";
+});
+
+/* CORAZONES */
+function crearCorazones(){
+    setInterval(()=>{
+        let corazon=document.createElement("div");
+        corazon.classList.add("corazon");
+        corazon.innerHTML="💗";
+        corazon.style.left=Math.random()*100+"vw";
+        corazon.style.fontSize=(Math.random()*20+20)+"px";
+        document.body.appendChild(corazon);
+
+        setTimeout(()=>{corazon.remove();},8000);
+    },300);
 }
 </script>
 
